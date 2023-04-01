@@ -27,10 +27,7 @@ int is_empty(queue_t* qu) {
 }
 
 int dequeue(queue_t* qu) {
-    if (is_empty(qu)) {
-        printf("is empty\n");
-        return -1;
-    }
+    if (is_empty(qu)) exit(1);
     int temp;
     temp = qu->front;
     qu->front = (qu->front +1)%(qu->size+1);
@@ -42,10 +39,7 @@ int is_full(queue_t* qu) {
 }
 
 void enqueue(queue_t* qu, int x) {
-    if (is_full(qu) == 1) {
-        printf("is full\n");
-        return;
-    }
+    if (is_full(qu) == 1) exit(1);
     qu->base[qu->rear] = x;
     qu->rear = (qu->rear +1)%(qu->size+1);
 }
